@@ -1,5 +1,7 @@
 package it.univaq.disim.mobile.carparking.domain;
 
+import com.sun.org.apache.xpath.internal.objects.XString;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,8 +18,8 @@ public class Parcheggio {
     @Column(name = "DESCRIZIONE", nullable = false, length = 255)
     private String descrizione;
 
-    @Column(name = "COSTO", nullable = false, length = 10)
-    private double costo;
+    @Column(name = "COSTO", nullable = false, length = 50)
+    private String costo;
 
     @Column(name = "ORARIO", nullable = false, length = 10)
     private String orario;
@@ -49,11 +51,11 @@ public class Parcheggio {
         this.descrizione = descrizione;
     }
 
-    public double getCosto() {
+    public String getCosto() {
         return costo;
     }
 
-    public void setCosto(double costo) {
+    public void setCosto(String costo) {
         this.costo = costo;
     }
 

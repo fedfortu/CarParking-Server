@@ -3,6 +3,7 @@ package it.univaq.disim.mobile.carparking;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JWTAuthenticationEntryPoint unauthorizedHandler;
 
+	@Qualifier("userDetailsServiceImpl")
 	@Autowired
 	private UserDetailsService userDetailsService;
 
@@ -77,9 +79,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and().authorizeRequests()
 				//Specificare le url che sono soggette ad autenticazione ed autorizzazione
 				.antMatchers("/", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js", "/api/login/**").permitAll()
-				.antMatchers("/api/notizie/**").authenticated()
-				.antMatchers("/api/insegnamenti/**", "/api/appelli/**").hasAnyRole("docente")
-				.antMatchers("/api/utente/**").authenticated();
+				.antMatchers("/api/parcheggio/**").authenticated();
 			
 
 		// Filtro Custom JWT

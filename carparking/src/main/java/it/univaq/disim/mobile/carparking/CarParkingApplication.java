@@ -23,7 +23,7 @@ public class CarParkingApplication {
 
 
     @Bean
-    public CommandLineRunner loadData(UtenteRepository utenteRepository) {
+    public CommandLineRunner loadData(UtenteRepository utenteRepository, ParcheggioRepository parcheggioRepository) {
         return (args) -> {
             Utente dendip = new Utente();
             dendip.setUsername("dendip");
@@ -40,6 +40,13 @@ public class CarParkingApplication {
             fedefo.setCognome("Fortunato");
             fedefo.setEmail("fedfortu22@gmail.com");
             fedefo = utenteRepository.save(fedefo);
+
+            Parcheggio SanFrancesco = new Parcheggio();
+            SanFrancesco.setNome("SanFrancesco");
+            SanFrancesco.setDescrizione("Bel parcheggio");
+            SanFrancesco.setOrario("13:00");
+            SanFrancesco.setCosto("1 Ora : 5€" + "2 Ore : 10€"+ " 3+ Ore : 15€");
+            SanFrancesco = parcheggioRepository.save(SanFrancesco);
         };
     }
 }

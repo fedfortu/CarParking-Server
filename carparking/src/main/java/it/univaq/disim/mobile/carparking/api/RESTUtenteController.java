@@ -56,5 +56,11 @@ public class RESTUtenteController {
 		Utente nuovoUtente = carParkingService.updateProfilo(utente);
 		return new UtenteResponse(nuovoUtente);
 	}
+
+	@PostMapping("/login/registrazione")
+	public UtenteResponse nuovoUtente(@RequestBody RegistrazioneRequest registrazioneRequest, HttpServletResponse response) {
+		Utente nuovoUtente = carParkingService.nuovoUtente(registrazioneRequest);
+		return new UtenteResponse(nuovoUtente);
+	}
 	
 }
