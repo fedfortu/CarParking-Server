@@ -1,8 +1,15 @@
 package it.univaq.disim.mobile.carparking.domain;
 
-import com.sun.org.apache.xpath.internal.objects.XString;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="parcheggio")
@@ -23,6 +30,12 @@ public class Parcheggio {
 
     @Column(name = "ORARIO", nullable = false, length = 10)
     private String orario;
+
+    @Column(name= "RATING", nullable = false, length = 2)
+    private int rating;
+
+    @Column(name = "PROVINCIA", nullable = false)
+    private String provincia;
 
     @Enumerated(EnumType.STRING)
     private ValutazioneParcheggio valutazioneParcheggio;
@@ -73,5 +86,21 @@ public class Parcheggio {
 
     public void setValutazioneParcheggio(ValutazioneParcheggio valutazioneParcheggio) {
         this.valutazioneParcheggio = valutazioneParcheggio;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
 }

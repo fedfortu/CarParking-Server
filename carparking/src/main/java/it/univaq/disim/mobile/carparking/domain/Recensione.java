@@ -17,16 +17,20 @@ public class Recensione {
     @Column(name = "DESCRIZIONE", nullable = false, length = 255)
     private String descrizione;
 
-    @Column(name = "DATA_PUBBLICAZIONE", nullable = false)
+    @Column(name = "DATA_PUBBLICAZIONE")
     private Date dataPubblicazione;
+
+    @Column(name= "RATING", nullable = false)
+    private int rating;
+
 
     @ManyToOne
     @JoinColumn(name = "ID_UTENTE", nullable = false)
-    private Utente pubblicatoDa;
+    private Utente utente;
 
     @ManyToOne
     @JoinColumn(name = "ID_PARCHEGGIO", nullable = false)
-    private Parcheggio riferitoA;
+    private Parcheggio parcheggio;
 
     public Long getId() {
         return id;
@@ -60,21 +64,30 @@ public class Recensione {
         this.dataPubblicazione = dataPubblicazione;
     }
 
-    public Utente getPubblicatoDa() {
-        return pubblicatoDa;
+    public Utente getUtente() {
+        return utente;
     }
 
-    public void setPubblicatoDa(Utente pubblicatoDa) {
-        this.pubblicatoDa = pubblicatoDa;
+    public void setUtente(Utente utente) {
+        this.utente = utente;
     }
 
-    public Parcheggio getRiferitoA() {
-        return riferitoA;
+    public Parcheggio getParcheggio() {
+        return parcheggio;
     }
 
-    public void setRiferitoA(Parcheggio riferitoA) {
-        this.riferitoA = riferitoA;
+    public void setParcheggio(Parcheggio parcheggio) {
+        this.parcheggio = parcheggio;
     }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
 
 }
 

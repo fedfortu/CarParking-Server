@@ -2,6 +2,7 @@ package it.univaq.disim.mobile.carparking.api;
 
 import it.univaq.disim.mobile.carparking.business.CarParkingService;
 import it.univaq.disim.mobile.carparking.domain.Parcheggio;
+import it.univaq.disim.mobile.carparking.domain.Recensione;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,4 +28,8 @@ public class RESTParcheggioController {
         return service.findParcheggioById(id);
     }
 
+    @GetMapping("/{idParcheggio}/recensioni")
+    public List<Recensione> list(@PathVariable long idParcheggio) {
+        return service.findAllRecensioni(idParcheggio);
+    }
 }

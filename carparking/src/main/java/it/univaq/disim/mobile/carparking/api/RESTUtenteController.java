@@ -2,6 +2,7 @@ package it.univaq.disim.mobile.carparking.api;
 
 import javax.servlet.http.HttpServletResponse;
 
+import it.univaq.disim.mobile.carparking.domain.Recensione;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,15 +11,14 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import it.univaq.disim.mobile.carparking.business.CarParkingService;
 import it.univaq.disim.mobile.carparking.common.spring.security.JWTTokenUtil;
 import it.univaq.disim.mobile.carparking.common.spring.security.UserDetailsImpl;
 import it.univaq.disim.mobile.carparking.domain.Utente;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -61,6 +61,9 @@ public class RESTUtenteController {
 	public UtenteResponse nuovoUtente(@RequestBody RegistrazioneRequest registrazioneRequest, HttpServletResponse response) {
 		Utente nuovoUtente = carParkingService.nuovoUtente(registrazioneRequest);
 		return new UtenteResponse(nuovoUtente);
+	}
+	@GetMapping("/utente/recensioni")
+	public List<Recensione> findRecensioniUtente() { return carParkingService.findRecensioniUtente();
 	}
 	
 }
