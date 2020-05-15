@@ -65,5 +65,9 @@ public class RESTUtenteController {
 	@GetMapping("/utente/recensioni")
 	public List<Recensione> findRecensioniUtente() { return carParkingService.findRecensioniUtente();
 	}
-	
+	@PostMapping("/utente/updateposition")
+	public UtenteResponse updatePosition(@RequestBody Utente utente) {
+		Utente newPosition = carParkingService.updatePosition(utente);
+		return new UtenteResponse(newPosition);
+	}
 }

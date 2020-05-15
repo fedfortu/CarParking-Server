@@ -15,6 +15,8 @@ public interface CarParkingService {
 
 	Utente nuovoUtente(RegistrazioneRequest registrazioneRequest) throws BusinessException;
 
+	Utente updatePosition(Utente utente) throws BusinessException;
+
 	Parcheggio findParcheggioById(Long id) throws BusinessException;
 
 	List<Parcheggio> findAllParcheggi() throws BusinessException;

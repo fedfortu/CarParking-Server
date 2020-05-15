@@ -40,6 +40,12 @@ public class Parcheggio {
     @Enumerated(EnumType.STRING)
     private ValutazioneParcheggio valutazioneParcheggio;
 
+    @Column(name = "LATITUDE", nullable = false)
+    private Double latitude;
+
+    @Column(name = "LONGITUDE", nullable = false)
+    private Double longitude;
+
     public String getNome() {
         return nome;
     }
@@ -102,5 +108,21 @@ public class Parcheggio {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 }

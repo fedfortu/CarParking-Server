@@ -48,6 +48,14 @@ public class CarParkingServiceImpl implements CarParkingService {
 	}
 
 	@Override
+	public Utente updatePosition(Utente profilo) throws BusinessException {
+		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
+		utente.setLatitude(profilo.getLatitude());
+		utente.setLongitude(profilo.getLongitude());
+		return utente;
+	}
+
+	@Override
 	public Utente nuovoUtente(RegistrazioneRequest registrazioneRequest) throws BusinessException{
 		Utente nuovo = new Utente();
 		nuovo.setNome(registrazioneRequest.getNome());

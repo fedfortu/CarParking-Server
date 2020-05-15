@@ -31,6 +31,8 @@ public class CarParkingApplication {
             dendip.setNome("Denis");
             dendip.setCognome("Di Patrizio");
             dendip.setEmail("denisdipatrizio4@gmail.com");
+            dendip.setLatitude(45.5787392);
+            dendip.setLongitude(13.975551999999999);
             dendip = utenteRepository.save(dendip);
 
             Utente fedefo = new Utente();
@@ -39,6 +41,8 @@ public class CarParkingApplication {
             fedefo.setNome("Federico");
             fedefo.setCognome("Fortunato");
             fedefo.setEmail("fedfortu22@gmail.com");
+            fedefo.setLatitude(45.5787392);
+            fedefo.setLongitude(13.975551999999999);
             fedefo = utenteRepository.save(fedefo);
 
             Parcheggio SanFrancesco = new Parcheggio();
@@ -50,6 +54,8 @@ public class CarParkingApplication {
             SanFrancesco.setCosto("1 Ora : 5€" + "2 Ore : 10€"+ " 3+ Ore : 15€");
             SanFrancesco.setRating(2);
             SanFrancesco.setProvincia("L'Aquila");
+            SanFrancesco.setLatitude(45.5787392);
+            SanFrancesco.setLongitude(13.975551999999999);
             SanFrancesco = parcheggioRepository.save(SanFrancesco);
 
 
@@ -62,6 +68,8 @@ public class CarParkingApplication {
             Garibaldi.setCosto("1 Ora : 5€" + "2 Ore : 10€"+ " 3+ Ore : 15€");
             Garibaldi.setRating(2);
             Garibaldi.setProvincia("Teramo");
+            Garibaldi.setLatitude(45.687392);
+            Garibaldi.setLongitude(13.98);
             Garibaldi = parcheggioRepository.save(Garibaldi);
 
             Recensione recensione1 = new Recensione();
