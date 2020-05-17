@@ -19,9 +19,7 @@ public class RESTParcheggioController {
     private CarParkingService service;
 
     @GetMapping
-    public List<Parcheggio> list() {
-        return service.findAllParcheggi();
-    }
+    public List<Parcheggio> list() { return service.findAllParcheggi(); }
 
     @GetMapping("/{id}")
     public Parcheggio findById(@PathVariable Long id) {

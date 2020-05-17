@@ -25,10 +25,23 @@ public class Parcheggio {
     @Column(name = "DESCRIZIONE", nullable = false, length = 255)
     private String descrizione;
 
-    @Column(name = "COSTO", nullable = false, length = 50)
-    private String costo;
+    @Column(name = "INDIRIZZO", nullable = false, length = 255)
+    private String indirizzo;
 
-    @Column(name = "ORARIO", nullable = false, length = 10)
+    @Column(name = "TELEFONO", nullable = false, length = 255)
+    private String telefono;
+
+
+    @Column(name = "COSTO_1_ORA", nullable = false, length = 50)
+    private String costo1ora;
+
+    @Column(name = "COSTO_24_ORE", nullable = false, length = 50)
+    private String costo24ore;
+
+    @Column(name = "COSTO_MENSILE", nullable = false, length = 50)
+    private String costoMensile;
+
+    @Column(name = "ORARIO", nullable = false, length = 100)
     private String orario;
 
     @Column(name= "RATING", nullable = false, length = 2)
@@ -70,12 +83,44 @@ public class Parcheggio {
         this.descrizione = descrizione;
     }
 
-    public String getCosto() {
-        return costo;
+    public String getIndirizzo() {
+        return indirizzo;
     }
 
-    public void setCosto(String costo) {
-        this.costo = costo;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCosto1ora() {
+        return costo1ora;
+    }
+
+    public void setCosto1ora(String costo1ora) {
+        this.costo1ora = costo1ora;
+    }
+
+    public String getCosto24ore() {
+        return costo24ore;
+    }
+
+    public void setCosto24ore(String costo24ore) {
+        this.costo24ore = costo24ore;
+    }
+
+    public String getCostoMensile() {
+        return costoMensile;
+    }
+
+    public void setCostoMensile(String costoMensile) {
+        this.costoMensile = costoMensile;
     }
 
     public String getOrario() {
