@@ -3,6 +3,7 @@ package it.univaq.disim.mobile.carparking.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "utenti")
@@ -100,4 +101,17 @@ public class Utente {
         this.latitude = latitude;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Utente utente = (Utente) o;
+        return username.equals(utente.username) &&
+                email.equals(utente.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, email);
+    }
 }

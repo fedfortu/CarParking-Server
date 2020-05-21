@@ -4,6 +4,7 @@ import it.univaq.disim.mobile.carparking.domain.Utente;
 
 public class UtenteResponse {
 
+	private Long id;
 	private String username;
 	private String nome;
 	private String cognome;
@@ -14,7 +15,10 @@ public class UtenteResponse {
 	public UtenteResponse() {
 	}
 
+
+
 	public UtenteResponse(Utente utente) {
+		this.id = utente.getId();
 		this.nome = utente.getNome();
 		this.cognome = utente.getCognome();
 		this.username = utente.getUsername();
@@ -24,6 +28,13 @@ public class UtenteResponse {
 
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}

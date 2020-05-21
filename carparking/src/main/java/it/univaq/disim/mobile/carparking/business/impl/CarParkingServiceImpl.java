@@ -4,10 +4,12 @@ import it.univaq.disim.mobile.carparking.api.RegistrazioneRequest;
 import it.univaq.disim.mobile.carparking.business.BusinessException;
 import it.univaq.disim.mobile.carparking.business.CarParkingService;
 import it.univaq.disim.mobile.carparking.business.impl.repositories.ParcheggioRepository;
+import it.univaq.disim.mobile.carparking.business.impl.repositories.PreferitiRepository;
 import it.univaq.disim.mobile.carparking.business.impl.repositories.RecensioneRepository;
 import it.univaq.disim.mobile.carparking.business.impl.repositories.UtenteRepository;
 import it.univaq.disim.mobile.carparking.common.Utility;
 import it.univaq.disim.mobile.carparking.domain.Parcheggio;
+import it.univaq.disim.mobile.carparking.domain.Preferiti;
 import it.univaq.disim.mobile.carparking.domain.Recensione;
 import it.univaq.disim.mobile.carparking.domain.Utente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,9 @@ public class CarParkingServiceImpl implements CarParkingService {
 
 	@Autowired
 	private RecensioneRepository recensioneRepository;
+
+	@Autowired
+	private PreferitiRepository preferitiRepository;
 
 	@Override
 	public Utente findUtenteByUsername(String username) throws BusinessException {
@@ -107,6 +112,27 @@ public class CarParkingServiceImpl implements CarParkingService {
 	public void deleteRecensione(long idRecensione) throws BusinessException {
 		recensioneRepository.deleteById(idRecensione);
 
+	}
+
+	@Override
+	public List<Preferiti> findAllPreferiti() throws BusinessException {
+		return preferitiRepository.findAll();
+	}
+
+	@Override
+	public List<Preferiti> findAllByIdUtente(long idUtente) throws BusinessException {
+		return preferitiRepository.findAllByIdUtente(idUtente);
+	}
+
+	@Override
+	public void createPreferito(Preferiti preferito) throws BusinessException {
+		preferito.setUtente(Utility.getUtente());
+		preferitiRepository.save(preferito);
+	}
+
+	@Override
+	public void deletePreferito(long idPreferiti) throws BusinessException {
+		preferitiRepository.deleteById(idPreferiti);
 	}
 
 }

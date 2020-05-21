@@ -2,6 +2,7 @@ package it.univaq.disim.mobile.carparking.business;
 
 import it.univaq.disim.mobile.carparking.api.RegistrazioneRequest;
 import it.univaq.disim.mobile.carparking.domain.Parcheggio;
+import it.univaq.disim.mobile.carparking.domain.Preferiti;
 import it.univaq.disim.mobile.carparking.domain.Recensione;
 import it.univaq.disim.mobile.carparking.domain.Utente;
 
@@ -33,6 +34,12 @@ public interface CarParkingService {
 
 	void deleteRecensione(long idRecensione) throws BusinessException;
 
+	List<Preferiti> findAllPreferiti() throws BusinessException;
 
+	List<Preferiti> findAllByIdUtente(long idUtente) throws BusinessException;
+
+	void createPreferito(Preferiti preferito) throws BusinessException;
+
+	void deletePreferito(long idPreferiti) throws BusinessException;
 
 }

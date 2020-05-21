@@ -1,15 +1,7 @@
 package it.univaq.disim.mobile.carparking.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name="parcheggio")
@@ -58,6 +50,9 @@ public class Parcheggio {
 
     @Column(name = "LONGITUDE", nullable = false)
     private Double longitude;
+
+    @Transient
+    public boolean piaciuto;
 
     public String getNome() {
         return nome;
@@ -169,5 +164,20 @@ public class Parcheggio {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Parcheggio that = (Parcheggio) o;
+        return indirizzo.equals(that.indirizzo) &&
+                latitude.equals(that.latitude) &&
+                longitude.equals(that.longitude);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(indirizzo, latitude, longitude);
     }
 }
