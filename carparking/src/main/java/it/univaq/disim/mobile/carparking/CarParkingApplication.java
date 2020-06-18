@@ -121,15 +121,17 @@ public class CarParkingApplication {
 
             Parcheggio SanFrancesco = new Parcheggio();
             SanFrancesco.setNome(" San Francesco");
-            SanFrancesco.setDescrizione("Non videosorvegliato, illuminato, non custodito, presenza di servizi igienici. All'aperto");
-            SanFrancesco.setIndirizzo("Via Piazza Dante");
+            SanFrancesco.setDescrizione("Bel parcheggio, un po disordinato ma tutto sommato ok." +
+                    "custodito, e video sorvegliato, non del tutto pulito." +
+                    "belli gli arredamenti. Mi piacciono molto gli interni di questo parcheggio particolari dettagli");
+            SanFrancesco.setIndirizzo("Via Piazza San Francesco");
             SanFrancesco.setTelefono("0861553947");
             SanFrancesco.setOrario("13:00");
             SanFrancesco.setCosto1ora("5€");
             SanFrancesco.setCosto24ore("20€");
             SanFrancesco.setCostoMensile("110€");
             SanFrancesco.setRating(2);
-            SanFrancesco.setProvincia("L'Aquila");
+            SanFrancesco.setProvincia("Teramo");
             SanFrancesco.setLatitude(45.5787392);
             SanFrancesco.setLongitude(13.975551999999999);
             SanFrancesco.setImmagineParcheggio(getImage("parcheggi1.jpg"));
@@ -137,12 +139,10 @@ public class CarParkingApplication {
 
             Parcheggio Belvedere = new Parcheggio();
             Belvedere.setNome("Belvedere Atri");
-            Belvedere.setDescrizione("Bel parcheggio, un po disordinato ma tutto sommato ok." +
-                    "custodito, e video sorvegliato, non del tutto pulito." +
-                    "belli gli arredamenti. Mi piacciono molto gli interni di questo parcheggio particolari dettagli");
+            Belvedere.setDescrizione("Non videosorvegliato, illuminato, non custodito, presenza di servizi igienici. All'aperto");
             Belvedere.setIndirizzo("Via Circonvallazione Nord");
             Belvedere.setTelefono("0861553829");
-            Belvedere.setOrario("13:00");
+            Belvedere.setOrario("Aperto 24h su 24");
             Belvedere.setCosto1ora("1€");
             Belvedere.setCosto24ore("5€");
             Belvedere.setCostoMensile("50€");
@@ -191,12 +191,12 @@ public class CarParkingApplication {
             recensione4 =  recensioneRepository.save(recensione4);
 
             Recensione recensione5 = new Recensione();
-            recensione5.setNome("Buon Parcheggio");
+            recensione5.setNome("Parcheggio bellissimo");
             recensione5.setDescrizione("Parcheggio ben illuminato, largo e ben tenuto. Sono soddisfatto.");
             recensione5.setDataPubblicazione(new Date(System.currentTimeMillis()));
             recensione5.setUtente(dendip);
             recensione5.setParcheggio(Belvedere);
-            recensione5.setRating(4);
+            recensione5.setRating(5);
             recensione5 =  recensioneRepository.save(recensione5);
 
         };
