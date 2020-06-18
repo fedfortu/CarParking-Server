@@ -23,15 +23,6 @@ public class RESTParcheggioController {
     @GetMapping
     public List<Parcheggio> list() {
         List<Parcheggio> parcheggi = service.findAllParcheggi();
-        List<Preferiti> preferiti = service.findAllByIdUtente(Utility.getUtente().getId());
-
-        for (Parcheggio p: parcheggi) {
-            for (Preferiti pf: preferiti) {
-                if (p.equals(pf.getParcheggio())) {
-                    p.piaciuto = true;
-                }
-            }
-        }
 
         return parcheggi;
     }

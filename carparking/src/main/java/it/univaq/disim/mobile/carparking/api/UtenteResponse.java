@@ -2,6 +2,8 @@ package it.univaq.disim.mobile.carparking.api;
 
 import it.univaq.disim.mobile.carparking.domain.Utente;
 
+import java.util.Base64;
+
 public class UtenteResponse {
 
 	private Long id;
@@ -9,6 +11,7 @@ public class UtenteResponse {
 	private String nome;
 	private String cognome;
 	private String email;
+	private byte[] immagineProfilo;
 	private Double latitude;
 	private Double longitude;
 
@@ -23,6 +26,7 @@ public class UtenteResponse {
 		this.cognome = utente.getCognome();
 		this.username = utente.getUsername();
 		this.email = utente.getEmail();
+		this.immagineProfilo = utente.getImmagineProfilo();
 		this.latitude = utente.getLatitude();
 		this.longitude = utente.getLongitude();
 
@@ -63,5 +67,11 @@ public class UtenteResponse {
 	public void setLatitude(Double latitude) { this.latitude = latitude; }
 	public Double getLongitude() { return longitude; }
 	public void setLongitude(Double longitude) { this.longitude = longitude; }
+	public byte[] getImmagineProfilo() {
+		return immagineProfilo;
+	}
+	public void setImmagineProfilo(byte[] immagineProfilo) {
+		this.immagineProfilo = immagineProfilo;
+	}
 
 }

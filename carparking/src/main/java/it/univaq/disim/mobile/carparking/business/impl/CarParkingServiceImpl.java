@@ -49,6 +49,7 @@ public class CarParkingServiceImpl implements CarParkingService {
 	public Utente updateProfilo(Utente profilo) throws BusinessException {
 		Utente utente = utenteRepository.findByUsername(profilo.getUsername());
 		utente.setEmail(profilo.getEmail());
+		utente.setImmagineProfilo(profilo.getImmagineProfilo());
 		return utente;
 	}
 

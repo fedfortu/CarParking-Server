@@ -45,6 +45,10 @@ public class Parcheggio {
     @Enumerated(EnumType.STRING)
     private ValutazioneParcheggio valutazioneParcheggio;
 
+    @Lob
+    @Column(name = "IMMAGINE_PARCHEGGIO")
+    private byte[] immagineParcheggio;
+
     @Column(name = "LATITUDE", nullable = false)
     private Double latitude;
 
@@ -164,6 +168,13 @@ public class Parcheggio {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public byte[] getImmagineParcheggio() {
+        return immagineParcheggio;
+    }
+    public void setImmagineParcheggio(byte[] immagineParcheggio) {
+        this.immagineParcheggio = immagineParcheggio;
     }
 
     @Override

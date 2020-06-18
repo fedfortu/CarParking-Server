@@ -31,6 +31,10 @@ public class Utente {
     @Column(name = "EMAIL", nullable = false, length = 255)
     private String email;
 
+    @Lob
+    @Column(name = "IMMAGINE_PROFILO")
+    private byte[] immagineProfilo;
+
     @Column(name = "LATITUDE")
     private Double latitude;
 
@@ -99,6 +103,13 @@ public class Utente {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public byte[] getImmagineProfilo() {
+        return immagineProfilo;
+    }
+    public void setImmagineProfilo(byte[] immagineProfilo) {
+        this.immagineProfilo = immagineProfilo;
     }
 
     @Override
